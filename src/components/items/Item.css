@@ -28,3 +28,9 @@
     transform: scale(1.05);
     transition: 0.6s;
  }
+
+   .productImage{
+      width: 320px;
+      height: 360px;
+      border-radius: 20%;
+   }
