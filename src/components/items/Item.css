@@ -1,0 +1,30 @@
+.item {
+   width: calc(25% - 20px); /* Adjusts the width to fit four items in a row with some gap */
+   margin: 10px; /* Add margin to create space between items */
+   box-sizing: border-box; /* Ensures padding and borders are included in total width */
+
+}
+
+
+ .item_prices{
+    display: flex;
+    gap: 20px;
+ }
+
+ .item_new_price{
+     color: #374151;
+     font-size: 18px;
+     font-weight: 600;
+ }
+
+ .item_old_price{
+    color: #8c8c8c;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: line-through;
+ }
+
+ .item:hover{
+    transform: scale(1.05);
+    transition: 0.6s;
+ }

@@ -1,0 +1,88 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 0 -1px 5px 1px rgba(34, 21, 21, 0.408);
+    background-color: rgb(252, 251, 249);
+    margin-bottom: 1px;
+    padding: 5px;
+    
+}
+
+.navbar_logo{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    height: 50px;
+    width: 70px;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+.logo_name{
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.navbar_menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.catagory_menu{
+    list-style: none;
+    padding: 0.5rem;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;   
+}
+.catagory_menu:hover{
+    font-weight: 600;
+    font-size: 21px;
+}
+.catagory_menu hr{
+    background-color: red;
+    border: none;
+    width: 80%;
+    height: 2px;
+   border-radius: 20px;
+}
+
+  
+.login{
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-right: 5px;
+    cursor: pointer;  
+}
+
+.login:hover{
+    background-color: aliceblue;
+}
+
+.cart{
+    border-radius: 10px;
+    margin-left: 10px;
+    /*?????????????*/
+}
+
+.cart_count{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    margin-top: -50px;
+     margin-left: 140px;
+     justify-content: center;
+     align-content: center;
+
+}
+
