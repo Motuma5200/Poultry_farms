@@ -55,6 +55,7 @@ const Cartitems = () => {
 
                 </div>
                 <button>PROCEED TO CHECKOUT</button>
+                
             </div>
          </div>
     </div>

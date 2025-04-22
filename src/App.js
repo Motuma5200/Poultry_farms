@@ -9,11 +9,14 @@ import ProductCategory from './pages/ProductCategory';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Footer from './components/footer/Footer';
-import meat_banner from './components/Asset/banner_mens.png'
-import egg_banner from './components/Asset/banner_women.png'
-import tool_banner from './components/Asset/banner_kids.png' 
+import meat_banner from './components/Asset/meat_banner.png'
+import egg_banner from './components/Asset/egg_banner.png'
+import tool_banner from './components/Asset/tool_banner.png' 
+//import Banner from './components/Asset/Banner';
 
 function App() {
+  
+ const banners = [meat_banner, egg_banner,tool_banner];
   return (
     <div className="App">
 
@@ -21,9 +24,9 @@ function App() {
           <Navbar/>
         <Routes>
           <Route path='/' element = {<Shop/>}/>
-          <Route path='/meat' element = {<ProductCategory banner = {meat_banner} category = "meat"/>}/>
-          <Route path='/eggs' element = {<ProductCategory banner = {egg_banner} category = "egg"/>}/>
-          <Route path='/tools' element = {<ProductCategory banner = {tool_banner} category = "tool"/>}/>  
+          <Route path='/meat' element = {<ProductCategory banner = {banners} category = "meat"/>}/>
+          <Route path='/eggs' element = {<ProductCategory banner = {banners} category = "egg"/>}/>
+          <Route path='/tools' element = {<ProductCategory banner = {banners} category = "tool"/>}/>  
           <Route path='/product' element = {<Product/>}>
             <Route path=':productId' element = {<Product/>}/>
           </Route>

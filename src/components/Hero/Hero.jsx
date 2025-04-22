@@ -2,7 +2,7 @@ import React from 'react'
 import './Hero.css'
 import hand_icon from '../Asset/hand_icon.png'
 import arrow from '../Asset/arrow.png'
-import hero_img from '../Asset/hero_img.jpg'
+import hero_img from '../Asset/hero.jpg'
 
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
 
         <div className="hero_left">
             <h2>Best Nutrition For All</h2>
-            <div>
+            <div className='hero_left_text'>
                 <div className="hand_icon">
                     <p>New</p>
                     <img className='h_icon' src = {hand_icon} alt="" />
@@ -25,7 +25,7 @@ const Hero = () => {
         </div>
 
         <div className="hero_right">
-        <img src= {hero_img} alt="" />
+        <img className='hero_img' src= {hero_img} alt="" />
         </div>
 
     </div>

@@ -8,9 +8,6 @@ const Product = () => {
   const {allProducts} = useContext(ShopContext);
   const { productId } = useParams();
 
-  console.log("Product ID:", productId); // Debugging log
-  console.log("All Products:", allProducts); // Debugging log
-
   if (!allProducts || allProducts.length === 0) {
     return <div>Loading...</div>;
   }
@@ -18,7 +15,6 @@ const Product = () => {
   const product = allProducts.find((e) => e.id === productId);
 
   if (!product) {
-    console.log("Product not found for ID:", productId); // Debugging log
     return <div>Product not found</div>;
   }
 

@@ -5,84 +5,228 @@
     box-shadow: 0 -1px 5px 1px rgba(34, 21, 21, 0.408);
     background-color: rgb(252, 251, 249);
     margin-bottom: 1px;
-    padding: 5px;
+    padding: 10px 3px;
     
 }
 
 .navbar_logo{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .logo{
-    height: 50px;
-    width: 70px;
+    height: 55px;
+    width: 60px;
     border-radius: 8px;
-    margin-top: 1rem;
 }
 .logo_name{
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 300;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-left: 10px;
+    cursor: pointer;
 }
 
 .navbar_menu{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 1rem;
+    align-items: center;
 }
 
 .catagory_menu{
     list-style: none;
     padding: 0.5rem;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 21px;
+    font-weight: 600;
     cursor: pointer;   
 }
 .catagory_menu:hover{
-    font-weight: 600;
-    font-size: 21px;
+    transform: scale(1.09);
+    transition-duration: 0.7s;
 }
 .catagory_menu hr{
     background-color: red;
     border: none;
     width: 80%;
     height: 2px;
-   border-radius: 20px;
+    border-radius: 20px;
+}
+
+.login_cart{
+    display: flex;
+    align-items: center;
+   justify-self: end;
 }
 
   
 .login{
-    padding: 10px 15px;
     font-size: 20px;
     font-weight: 600;
-    border-radius: 20px;
-    margin-right: 5px;
-    cursor: pointer;  
+    padding: 6px;
+    border:  none;
+    border-radius: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: rgba(249, 213, 207, 0.678);
+    margin-right: 20px;
+    cursor: pointer;
+ 
 }
 
 .login:hover{
-    background-color: aliceblue;
+    background-color: rgb(247, 190, 186);
 }
 
-.cart{
-    border-radius: 10px;
-    margin-left: 10px;
-    /*?????????????*/
+.loged{
+    background-color: rgb(247, 190, 186);
+    transform: scale(1.1);
+}
+
+.cartContent{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+
+
+.carting{
+    transform: scale(1.05);
 }
 
 .cart_count{
-    width: 20px;
-    height: 20px;
-    display: flex;
-    border-radius: 10px;
-    background-color: red;
+    background-color: rgb(223, 5, 5);
+    padding: 0 5px;
+    border-radius: 50%;
     color: white;
-    margin-top: -50px;
-     margin-left: 140px;
-     justify-content: center;
-     align-content: center;
+    font-weight: 700;
+    font-size: 17px;
+    align-self: flex-start;
 
 }
 
+.hide_menu{
+    display: none;
+}
+
+.menu_control{
+    display: none; /*   For next use*/
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    gap: 3px;
+    background-color: rgb(247, 252, 252);
+    cursor: pointer;
+    padding: 2px;
+}
+
+.firstLine{
+    width: 22px;
+    height: 2.5px;
+    background-color: black;
+    }
+.secondLine{
+    width: 22px;
+    height: 2.5px;
+    background-color: black;
+
+}
+
+.thirdLine{
+    width: 22px;
+    height: 2.5px;
+    background-color: black;
+
+}
+
+
+.firstCross::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 1px;
+    height: 3px;
+    width: 22px;
+    background-color: black;
+    transform: rotate(45deg);
+    transition-duration: 0.6s;
+}
+
+.secondCross::after{
+    content: '';
+    position: absolute;
+    top: 10px;
+    height: 3px;
+    width: 22px;
+    background-color: black;
+    transform: rotate(-45deg);
+
+}
+
+
+
+/*  Break points*/
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .navbar{
+        justify-content: space-around;
+        padding: 8px 5px;
+        
+    }
+
+    .logo{
+        height: 45px;
+        width: 50px;
+    }
+    .logo_name{
+        font-size: 18px;
+        font-weight: 200;
+        
+    }
+    .catagory_menu{
+        font-size: 18px;
+        font-weight: 600;
+           
+    }
+
+    .login{
+        font-size: 18px;
+        font-weight: 600;
+     
+    }
+
+    .cartContent{
+       height: 40px;
+    }
+
+    .cartIcon{
+        height: 28px;
+    }
+
+    .cart_count{
+        padding: 0 4px;
+        height: 50%;
+        font-weight: 600;
+        font-size: 16px;
+    
+    }
+
+ 
+}
+
+@media screen and (max-width: 576px) {
+
+
+}
+
+
+@media screen and (max-width: 350px) {
+
+}

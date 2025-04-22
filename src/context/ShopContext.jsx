@@ -6,44 +6,43 @@ const ShopContextProvider = (props) => {
   const [allProducts, setAllProducts] = useState([]);
   const [cartItems, setCartItems] = useState({});
 
-  // Fetch products from the backend
+  // Fetch products and cart items
   useEffect(() => {
-    fetch("http://localhost/poultry/products.php")
-      .then((response) => response.json())
-      .then((data) => {
-        setAllProducts(data);
-        // Initialize cart items
-        const cart = {};
-        data.forEach((product) => {
-          cart[product.id] = 0;
-        });
-        setCartItems(cart);
-      })
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
-
-
-  // Fetch cart items from the backend
-
-  useEffect(() => {
-    const fetchCartItems = async () => {
+    const fetchProductsAndCart = async () => {
       try {
-        const response = await fetch("http://localhost/poultry/getCart.php");
-        const data = await response.json();
-        console.log(data);
-        const cart = {};
-        data.forEach((item) => {
-          cart[item.product_id] = item.quantity;
+        // Fetch products
+        const productsResponse = await fetch("http://localhost/poultry/products.php");
+        const productsData = await productsResponse.json();
+        console.log("All Products:", productsData);
+        setAllProducts(productsData);
+
+        // Initialize cart items
+        const initialCart = {};
+        productsData.forEach((product) => {
+          initialCart[product.id] = 0;
         });
-        setCartItems(cart);
+        setCartItems(initialCart);
+
+        // Fetch cart items
+        const cartResponse = await fetch("http://localhost/poultry/getCart.php");
+        const cartData = await cartResponse.json();
+        console.log("Cart data:", cartData);
+
+        // Update cart items with quantities from the backend
+        const updatedCart = { ...initialCart };
+        cartData.forEach((item) => {
+          updatedCart[item.product_id] = item.quantity;
+        });
+        setCartItems(updatedCart);
+
+        console.log("Updated Cart Items:", updatedCart);
       } catch (error) {
-        console.error("Error fetching cart items:", error);
+        console.error("Error fetching data:", error);
       }
     };
-  
-    fetchCartItems();
-  }, []);
 
+    fetchProductsAndCart();
+  }, []);
 
   const addToCart = async (itemId) => {
     try {
@@ -51,7 +50,6 @@ const ShopContextProvider = (props) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ product_id: itemId, quantity: 1 }),
-        
       });
       const result = await response.json();
       console.log(result);
@@ -62,7 +60,6 @@ const ShopContextProvider = (props) => {
       console.error("Error adding to cart:", error);
     }
   };
-
 
   const removeFromCart = async (itemId) => {
     try {
@@ -85,8 +82,10 @@ const ShopContextProvider = (props) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        const itemInfo = allProducts.find((product) => product.id === item);
-        totalAmount += itemInfo.new_price * cartItems[item];
+        const itemInfo = allProducts.find((product) => product.id === parseInt(item));
+        if (itemInfo) {
+          totalAmount += itemInfo.new_price * cartItems[item];
+        }
       }
     }
     return totalAmount;

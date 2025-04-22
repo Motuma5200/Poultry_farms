@@ -6,9 +6,10 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    padding: 0 130px;
+    padding: 40px 130px;
     margin-bottom: 120px;
-    background: linear-gradient(180deg,  #fde1ff, e1ffea22 60%);
+    margin-top: 80px;
+    background: linear-gradient(180deg, #ffffd2, #e1f2ea22 60%);
     gap: 30px;
 }
 
@@ -51,4 +52,47 @@
     color: white;
     font-size: 17px;
     cursor: pointer;
+}
+
+/*  Break points*/
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 768px) {
+    .newsletter h1{
+        font-size: 26px;
+        font-weight: 700;
+    }
+    .newsletter p{
+        
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .newsletter div{
+        width: 90%;
+        height: 60px;
+    }
+    .newsletter input{
+        width: 70%;
+        margin-left: 20px;
+    }
+    .newsletter div button{
+        width: 150px;
+        height: 60px;
+        font-size: 15px;
+    }
+ 
+}
+
+@media screen and (max-width: 576px) {
+
+
+}
+
+
+@media screen and (max-width: 350px) {
+
 }

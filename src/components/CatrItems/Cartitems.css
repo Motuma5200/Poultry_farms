@@ -24,6 +24,7 @@
 }
 .carticon_product_icon{
     height: 76px;
+    width: 76px;
 }
 
 .cartItem_quantity{
@@ -68,3 +69,23 @@
     border-radius: 22px;
 }
 
+/*  Break points*/
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+ 
+}
+
+@media screen and (max-width: 576px) {
+
+
+}
+
+
+@media screen and (max-width: 350px) {
+
+}
