@@ -1,5 +1,5 @@
 import React from 'react'
-import meatBan from './tool_banner.jpg'
+import meatBan from './eggs.jpg'
 import './banner.css'
 
 const Banner = () => {

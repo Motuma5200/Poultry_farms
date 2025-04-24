@@ -37,7 +37,7 @@
     
 }
 
-.hero_latest_btn{
+.hero_latest_btn a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,9 +48,19 @@
     margin-top: 100px;
     background-color: #ff4141;
     color: white;
+    text-decoration: none;
     font-size: 23px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.hero_latest_btn a:hover{
+    background: #ff4263;
+}
+
+.hero_latest_btn a:hover img{
+    transform: translateX(5px);
+    transition: transform 0.2s ease;
 }
 
 .hero_right{

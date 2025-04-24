@@ -48,8 +48,8 @@ const LoginSignUp = () => {
               setPassword(e.target.value);
               if (e.target.value === "") {
                   setError("Password cannot be empty");
-              } else if (!passwordRegex.test(e.target.value)) {
-                  setError("Password must contain at least a capital letter, one small letter, one number, and be at least 8 characters long");
+              } else if (!passwordRegex.test(e.target.value) && signOrLogin === 'signUp') {
+                  setError("Password must contain  a capital & small letter, number, and be at least 8 characters long");
               }
               break;
   
@@ -81,7 +81,9 @@ const LoginSignUp = () => {
               }
   
               if (!passwordRegex.test(password)) {
-                  setError("Password must contain at least one capital letter, one small letter, one number, and be at least 8 characters long");
+                  setError("Password must contain capital & small letter,  number, and be at least 8 characters long");
+        
+                      setPassword("");
                   return;
               }
   

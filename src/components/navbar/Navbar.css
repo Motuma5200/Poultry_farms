@@ -1,52 +1,61 @@
-.navbar{
+/* General Navbar Styles */
+.navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     box-shadow: 0 -1px 5px 1px rgba(34, 21, 21, 0.408);
     background-color: rgb(252, 251, 249);
-    margin-bottom: 1px;
-    padding: 10px 3px;
-    
+    padding: 10px 20px;
+    position: relative; /* Required for z-index to work */
+    z-index: 1000; /* Ensure navbar is above other elements */
 }
 
-.navbar_logo{
+/* Logo Section */
+.navbar_logo {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.logo{
+.logo {
     height: 55px;
     width: 60px;
     border-radius: 8px;
 }
-.logo_name{
+
+.logo_name {
     font-size: 22px;
     font-weight: 300;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-left: 10px;
     cursor: pointer;
 }
 
-.navbar_menu{
+/* Navbar Menu */
+.navbar_menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.catagory_menu{
+/* Category Menu Items */
+.catagory_menu {
     list-style: none;
     padding: 0.5rem;
     font-size: 21px;
     font-weight: 600;
-    cursor: pointer;   
+    cursor: pointer;
+    position: relative; /* Required for dropdown positioning */
 }
-.catagory_menu:hover{
+
+.catagory_menu:hover {
     transform: scale(1.09);
     transition-duration: 0.7s;
 }
-.catagory_menu hr{
+
+.catagory_menu hr {
     background-color: red;
     border: none;
     width: 80%;
@@ -54,49 +63,85 @@
     border-radius: 20px;
 }
 
-.login_cart{
-    display: flex;
-    align-items: center;
-   justify-self: end;
+/* Dropdown Menu */
+.dropdown_menu {
+    position: absolute; /* Position relative to the parent */
+    background-color: white;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* High z-index to overlay other elements */
+    top: 100%; /* Position it below the parent menu item */
+    left: 0; /* Align it with the parent menu item */
+    width: 200px; /* Adjust width as needed */
+    display: none; /* Initially hide the dropdown */
 }
 
-  
-.login{
+/* Show the dropdown when the parent is hovered */
+.catagory_menu:hover .dropdown_menu {
+    display: block; /* Show the dropdown on hover */
+}
+
+/* Dropdown Menu Items */
+.dropdown_menu li {
+    padding: 5px 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* Highlight Dropdown Items on Hover */
+.dropdown_menu li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Ensure Dropdown Links Are Styled Properly */
+.dropdown_menu a {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the entire item clickable */
+}
+
+/* Login and Cart Section */
+.login_cart {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+}
+
+.login {
     font-size: 20px;
     font-weight: 600;
     padding: 6px;
-    border:  none;
+    border: none;
     border-radius: 10px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(249, 213, 207, 0.678);
     margin-right: 20px;
     cursor: pointer;
- 
 }
 
-.login:hover{
+.login:hover {
     background-color: rgb(247, 190, 186);
 }
 
-.loged{
+.loged {
     background-color: rgb(247, 190, 186);
     transform: scale(1.1);
 }
 
-.cartContent{
+.cartContent {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
 }
 
-
-
-.carting{
+.carting {
     transform: scale(1.05);
 }
 
-.cart_count{
+.cart_count {
     background-color: rgb(223, 5, 5);
     padding: 0 5px;
     border-radius: 50%;
@@ -104,15 +149,11 @@
     font-weight: 700;
     font-size: 17px;
     align-self: flex-start;
-
 }
 
-.hide_menu{
-    display: none;
-}
-
-.menu_control{
-    display: none; /*   For next use*/
+/* Responsive Menu Control */
+.menu_control {
+    display: none; /* For future use */
     flex-direction: column;
     justify-content: center;
     position: relative;
@@ -122,103 +163,65 @@
     padding: 2px;
 }
 
-.firstLine{
+.firstLine {
     width: 22px;
     height: 2.5px;
     background-color: black;
-    }
-.secondLine{
+}
+
+.secondLine {
     width: 22px;
     height: 2.5px;
     background-color: black;
-
 }
 
-.thirdLine{
+.thirdLine {
     width: 22px;
     height: 2.5px;
     background-color: black;
-
 }
 
-
-.firstCross::before{
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 1px;
-    height: 3px;
-    width: 22px;
-    background-color: black;
-    transform: rotate(45deg);
-    transition-duration: 0.6s;
-}
-
-.secondCross::after{
-    content: '';
-    position: absolute;
-    top: 10px;
-    height: 3px;
-    width: 22px;
-    background-color: black;
-    transform: rotate(-45deg);
-
-}
-
-
-
-/*  Break points*/
-
-@media screen and (max-width: 992px) {
-
-}
-
+/* Breakpoints for Responsive Design */
 @media screen and (max-width: 768px) {
-
-    .navbar{
+    .navbar {
         justify-content: space-around;
         padding: 8px 5px;
-        
     }
 
-    .logo{
+    .logo {
         height: 45px;
         width: 50px;
     }
-    .logo_name{
+
+    .logo_name {
         font-size: 18px;
         font-weight: 200;
-        
     }
-    .catagory_menu{
+
+    .catagory_menu {
         font-size: 18px;
         font-weight: 600;
-           
     }
 
-    .login{
+    .login {
         font-size: 18px;
         font-weight: 600;
-     
     }
 
-    .cartContent{
-       height: 40px;
+    .cartContent {
+        height: 40px;
     }
 
-    .cartIcon{
+    .cartIcon {
         height: 28px;
     }
 
-    .cart_count{
+    .cart_count {
         padding: 0 4px;
         height: 50%;
         font-weight: 600;
         font-size: 16px;
-    
     }
-
- 
 }
 
 @media screen and (max-width: 576px) {

@@ -17,7 +17,7 @@ const Popular = () => {
 
   return (
     <div className='popular'>
-      <h1>POPULAR FOR EGG</h1>
+      <h1>TOP LATEST PRODUCTS</h1>
       <hr />
 
       <div className="popular_items">

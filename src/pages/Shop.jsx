@@ -7,7 +7,10 @@ function Shop() {
   return (
     <div className='shop'>
       <Hero/>
-      <Popular/> 
+      <div id='popular'>
+              <Popular/>
+      </div>
+     
       <NewsLetter/>
     </div>
   )

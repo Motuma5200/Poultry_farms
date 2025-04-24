@@ -48,8 +48,27 @@
 .productCategory_sort_index{
     display: flex;
     justify-content: space-around;
-    margin: 20px 14px;
+   align-items: flex-end;
+   height: 40px;
    
+}
+
+.product_category_sort{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.productCategory_sort_index p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #363d3d;
+}
+
+.product_category_sort p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #363d3f;
+    padding-right: 10px;
 }
 
 

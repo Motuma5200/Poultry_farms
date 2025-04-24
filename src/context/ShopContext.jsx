@@ -11,7 +11,7 @@ const ShopContextProvider = (props) => {
     const fetchProductsAndCart = async () => {
       try {
         // Fetch products
-        const productsResponse = await fetch("http://localhost/poultry/products.php");
+        const productsResponse = await fetch("http://localhost/poultry/fetchProducts.php");
         const productsData = await productsResponse.json();
         console.log("All Products:", productsData);
         setAllProducts(productsData);
@@ -44,12 +44,13 @@ const ShopContextProvider = (props) => {
     fetchProductsAndCart();
   }, []);
 
-  const addToCart = async (itemId) => {
+  const addToCart = async (itemId, sessionId) => {
     try {
       const response = await fetch("http://localhost/poultry/addToCart.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product_id: itemId, quantity: 1 }),
+        credentials: "include",
+        body: JSON.stringify({ product_id: itemId, quantity: 1, session_id: sessionId }),
       });
       const result = await response.json();
       console.log(result);
