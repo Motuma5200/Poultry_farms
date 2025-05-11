@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './CSS/Loginsignu.css'
 import { useNavigate } from 'react-router-dom';
+import { ShopContext} from '../context/ShopContext';
 
 const LoginSignUp = () => {
     const [fullName, setFullName] = useState("");
@@ -8,8 +9,9 @@ const LoginSignUp = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [msg, setMsg] = useState("");
-    const [signOrLogin , setSignOrLogin] = useState("SignUp");
+    const [signOrLogin , setSignOrLogin] = useState("Login");
     const navigate = useNavigate();
+    const { handleLogin } = useContext(ShopContext); // Assuming you have a context for managing login state 
 
 
     useEffect(()=> {
@@ -117,6 +119,7 @@ const LoginSignUp = () => {
                       setFullName("");
                       setEmail("");
                       setPassword("");
+                      handleLogin(); // Notify ShopContext of successful login
                       navigate("/"); // Redirect to the Meat category page
                   } else {
                     setError(result && result[0] ? result.result : "An error occurred during signup.");
@@ -152,6 +155,7 @@ const LoginSignUp = () => {
             const response = await fetch(url, {
                 method: "POST",
                 headers: headers,
+                credentials: "include", // Include cookies for session handlin
                 body: JSON.stringify(data)
             });
 
@@ -166,6 +170,7 @@ const LoginSignUp = () => {
                 setMsg(jsonResponse.result); // Show success message
                 setEmail("");
                 setPassword("");
+                handleLogin(); // Notify ShopContext of successful login
                 navigate('/meat'); // Redirect to the Meat category page
             } else {
                 setError(jsonResponse.result || "An error occurred during login.");

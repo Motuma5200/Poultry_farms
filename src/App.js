@@ -7,6 +7,7 @@ import Product from './pages/Product';
 import ProductCategory from './pages/ProductCategory';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
+import PaymentPage from './components/payment/PaymentPage';
 import Footer from './components/footer/Footer';
 import meat_banner from './components/Asset/meat_banner.png';
 import egg_banner from './components/Asset/egg_banner.png';
@@ -45,8 +46,10 @@ function App() {
             <Route path=":productId" element={<Product />} />
           </Route>
           <Route path="/cart" element={<Cart />} />
+          
           <Route path="/signup" element={<LoginsignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path='/payment' element = {<PaymentPage/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

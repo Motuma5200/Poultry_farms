@@ -89,6 +89,13 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.shopProduct_category > * {
+    justify-self: center; /* Ensure individual items are centered */
+    text-align: center; /* Center text inside items */
+    max-width: 100%; /* Prevent oversized content */
+}
+
+
 .product_loadmore{
     display: flex;
     justify-content: center;
@@ -111,6 +118,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .shopProduct_category{
+        margin: 15px;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
  
 }

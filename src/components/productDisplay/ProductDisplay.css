@@ -35,6 +35,29 @@
     font-weight: 700;
 }
 
+.quantity_input {
+    width: 60px;
+    height: 25px;
+    padding: 5px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .quantity_label{
+    padding: 5px;
+    font-size: 20px;
+  }
+  
+  .cart_controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+ 
+
 .procuct_oldprice{
     color: #343421;
     text-decoration: line-through;
