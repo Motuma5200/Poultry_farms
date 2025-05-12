@@ -60,6 +60,8 @@ const LoginSignUp = () => {
       }
   };
   
+
+
   const handleSignUpSubmit = async () => {
       const fullNamePart = fullName.trim().split(" ");
   
@@ -89,7 +91,7 @@ const LoginSignUp = () => {
                   return;
               }
   
-              const url = "http://localhost/poultry/signUp.php";
+              const url = "http://poultryfarms.liveblog365.com/signup.php";
               const headers = {
                   Accept: "application/json",
                   "Content-Type": "application/json",
