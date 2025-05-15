@@ -91,7 +91,7 @@ const LoginSignUp = () => {
                   return;
               }
   
-              const url = "http://poultryfarms.liveblog365.com/signup.php";
+              const url = "https://poultryfarms.liveblog365.com/signup.php";
               const headers = {
                   Accept: "application/json",
                   "Content-Type": "application/json",

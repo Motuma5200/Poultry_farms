@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PoultryLogo from '../Asset/new_logo.jpg';
 import cart_icon from '../Asset/cart_icon.png';
 import './Navbar.css';
@@ -9,10 +9,19 @@ function Navbar() {
     const [activemenu, setActiveMenu] = useState("shop");
     const { getTotalCartItem } = useContext(ShopContext);
     const [menu_control, setMenuControl] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
 
     // State to manage dropdown visibility
     const [dropdown, setDropdown] = useState("");
-
+     
+     useEffect(() => {
+        // Fetch login session status from PHP backend
+        fetch('http://localhost/poultry/check_session.php')
+            .then(response => response.json())
+            .then(data => setIsLoggedIn(data.isLoggedIn)) // Assuming API returns { isLoggedIn: true/false }
+            .catch(error => console.error("Error fetching login status:", error));
+    }, []);
+     
     return (
         <div className="navbar">
             <div className="navbar_logo">
@@ -75,8 +84,12 @@ function Navbar() {
             </div>
 
             <div className="login_cart">
-                <Link to='/signup'><button className={activemenu === 'login' ? "loged login" : "login"} onClick={() => setActiveMenu("login")}>Login</button></Link>
-                <div className={activemenu === 'cart' ? 'carting cartContent' : 'cartContent'} onClick={() => setActiveMenu("cart")}>
+                <Link to={isLoggedIn ? '/meat' : '/loginSignUp'}>
+                    <button className="login" onClick={() => setIsLoggedIn(!isLoggedIn)}>
+                        {isLoggedIn ? "Logout" : "Login"}
+                    </button>
+                </Link>
+                 <div className={activemenu === 'cart' ? 'carting cartContent' : 'cartContent'} onClick={() => setActiveMenu("cart")}>
                     <Link to='/cart'><img className='cartIcon' src={cart_icon} alt="Cart" /></Link>
                     <div className="cart_count">{getTotalCartItem()}</div>
                 </div>
